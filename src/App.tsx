@@ -13,9 +13,12 @@ function cn(...inputs: ClassValue[]) {
 
 // Components
 const Logo = ({ className = "w-8 h-8" }) => (
-  <div className={cn("relative flex items-center justify-center rounded-full border-2 border-gold bg-black", className)}>
-    <span className="text-gold font-bold text-lg leading-none select-none" style={{ fontFamily: 'serif' }}>F</span>
-  </div>
+  <img 
+    src="https://raw.githubusercontent.com/YounesMezzane/my-website-assets/refs/heads/main/logo%20faam.jpeg" 
+    alt="FAAM SIGNATURE CAR" 
+    className={cn("object-contain rounded-full", className)}
+    referrerPolicy="no-referrer"
+  />
 );
 
 const Navbar = () => {
@@ -32,7 +35,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="flex items-center space-x-2">
             <Logo className="w-8 h-8" />
-            <span className="text-2xl font-bold tracking-tighter text-white">FAAM <span className="text-gold">RENT</span></span>
+            <span className="text-2xl font-bold tracking-tighter text-white">FAAM <span className="text-gold">SIGNATURE CAR</span></span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -211,7 +214,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Featured Fleet</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Featured Cars</h2>
               <div className="w-20 h-1 bg-gold" />
             </div>
             <Link to="/fleet" className="text-gold font-bold hover:underline">View All Vehicles →</Link>
@@ -269,7 +272,7 @@ const Home = () => {
       <section className="py-24 bg-zinc-950 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Follow Us @FAAMRENT</h2>
+            <h2 className="text-3xl font-bold text-white mb-2">Follow Us @FAAMSIGNATURECAR</h2>
             <p className="text-white/40">Join our luxury community on Instagram</p>
           </div>
           <Instagram className="text-gold w-8 h-8" />
@@ -319,7 +322,7 @@ const Fleet = () => {
   return (
     <div className="pt-32 pb-20 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-white mb-12">Our Premium Fleet</h1>
+        <h1 className="text-4xl font-bold text-white mb-12">FAAM SIGNATURE CAR🇲🇦</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {vehicles.map(vehicle => (
@@ -371,12 +374,12 @@ const About = () => {
   return (
     <div className="pt-32 pb-20 bg-black min-h-screen">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold text-white mb-12">About FAAM Rent Car</h1>
+        <h1 className="text-5xl font-bold text-white mb-12">About FAAM SIGNATURE CAR</h1>
         <div className="bg-zinc-900 p-12 rounded-3xl border border-white/10">
           <p className="text-2xl text-white/80 leading-relaxed italic font-serif">
             {t.aboutText || (t.language === 'en' 
-              ? "FAAM Rent Car provides reliable and comfortable vehicles for travelers and residents looking for the best driving experience."
-              : "FAAM Rent Car propose des véhicules fiables et confortables pour les voyageurs et les résidents à la recherche de la meilleure expérience de conduite."
+              ? "FAAM SIGNATURE CAR provides reliable and comfortable vehicles for travelers and residents looking for the best driving experience."
+              : "FAAM SIGNATURE CAR propose des véhicules fiables et confortables pour les voyageurs et les résidents à la recherche de la meilleure expérience de conduite."
             )}
           </p>
         </div>
@@ -772,7 +775,7 @@ const AdminLogin = ({ onLogin }) => {
         <div className="text-center mb-10">
           <Logo className="w-16 h-16 mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-white">Login</h1>
-          <p className="text-white/50 text-sm">FAAM Rent Car</p>
+          <p className="text-white/50 text-sm">FAAM SIGNATURE CAR</p>
         </div>
         
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -963,7 +966,7 @@ const AdminDashboard = () => {
         <div className="p-6 border-b border-white/10 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <Logo className="w-8 h-8" />
-            <span className="text-xl font-bold text-white">FAAM <span className="text-gold text-xs">ADMIN</span></span>
+            <span className="text-xl font-bold text-white">FAAM SIGNATURE CAR <span className="text-gold text-xs">ADMIN</span></span>
           </Link>
           <button 
             onClick={() => setIsSidebarOpen(false)}
@@ -1315,7 +1318,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-6">
               <Logo className="w-10 h-10" />
-              <span className="text-2xl font-bold tracking-tighter text-white">FAAM <span className="text-gold">RENT</span></span>
+              <span className="text-2xl font-bold tracking-tighter text-white">FAAM <span className="text-gold">SIGNATURE CAR</span></span>
             </Link>
             <p className="text-white/50 max-w-sm mb-6">{t.footer.tagline}</p>
             <div className="flex space-x-4">
@@ -1343,7 +1346,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="pt-8 border-t border-white/5 text-center text-xs text-white/30">
-          <p>© {new Date().getFullYear()} FAAM Rent Car. {t.footer.rights}</p>
+          <p>© {new Date().getFullYear()} FAAM SIGNATURE CAR. {t.footer.rights}</p>
         </div>
       </div>
     </footer>

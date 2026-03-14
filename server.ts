@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { createClient } from "@supabase/supabase-js";
+import "dotenv/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -127,27 +128,31 @@ async function startServer() {
   });
 
   app.post("/api/vehicles", authenticateToken, async (req, res) => {
+    const payload = { ...req.body };
+    delete payload.id; // Let DB generate UUID
     if (supabase) {
-      const { data, error } = await supabase.from('vehicles').insert([req.body]).select();
+      const { data, error } = await supabase.from('vehicles').insert([payload]).select();
       if (!error) return res.status(201).json(data[0]);
       console.error("Supabase Create Vehicle Error:", error.message, error.code);
       return res.status(400).json({ message: error.message });
     }
-    const newVehicle = { ...req.body, id: Date.now().toString() };
+    const newVehicle = { ...payload, id: Date.now().toString() };
     mockVehicles.push(newVehicle);
     res.status(201).json(newVehicle);
   });
 
   app.put("/api/vehicles/:id", authenticateToken, async (req, res) => {
+    const payload = { ...req.body };
+    delete payload.id; // Don't update primary key
     if (supabase) {
-      const { data, error } = await supabase.from('vehicles').update(req.body).eq('id', req.params.id).select();
+      const { data, error } = await supabase.from('vehicles').update(payload).eq('id', req.params.id).select();
       if (!error) return res.json(data[0]);
       console.error("Supabase Update Vehicle Error:", error.message, error.code);
       return res.status(400).json({ message: error.message });
     }
     const index = mockVehicles.findIndex(v => v.id === req.params.id);
     if (index !== -1) {
-      mockVehicles[index] = { ...mockVehicles[index], ...req.body };
+      mockVehicles[index] = { ...mockVehicles[index], ...payload };
       res.json(mockVehicles[index]);
     } else {
       res.status(404).json({ message: "Vehicle not found" });

@@ -2,7 +2,7 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      fleet: "Fleet",
+      fleet: "Cars",
       about: "About",
       contact: "Contact",
       admin: "Login"
@@ -11,7 +11,7 @@ export const translations = {
       title: "Drive Your Journey in Style",
       subtitle: "Premium car rental for tourists and business travelers in Morocco.",
       bookNow: "Book a Car",
-      viewFleet: "View Fleet"
+      viewFleet: "View Cars"
     },
     search: {
       pickupLocation: "Pickup Location",
@@ -35,7 +35,7 @@ export const translations = {
       }
     },
     footer: {
-      tagline: "FAAM Rent Car - Premium Mobility in Morocco",
+      tagline: "FAAM SIGNATURE CAR - Premium Mobility in Morocco",
       rights: "All rights reserved."
     },
     booking: {
@@ -50,7 +50,7 @@ export const translations = {
   fr: {
     nav: {
       home: "Accueil",
-      fleet: "Flotte",
+      fleet: "Voitures",
       about: "À Propos",
       contact: "Contact",
       admin: "Connexion"
@@ -59,7 +59,7 @@ export const translations = {
       title: "Conduisez avec Style",
       subtitle: "Location de voitures premium pour touristes et voyageurs d'affaires au Maroc.",
       bookNow: "Réserver",
-      viewFleet: "Voir la Flotte"
+      viewFleet: "Voir les Voitures"
     },
     search: {
       pickupLocation: "Lieu de prise en charge",
@@ -83,7 +83,7 @@ export const translations = {
       }
     },
     footer: {
-      tagline: "FAAM Rent Car - Mobilité Premium au Maroc",
+      tagline: "FAAM SIGNATURE CAR - Mobilité Premium au Maroc",
       rights: "Tous droits réservés."
     },
     booking: {
